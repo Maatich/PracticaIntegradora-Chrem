@@ -1,0 +1,141 @@
+[
+	{
+		"title": "Producto",
+		"description": "Juege casino online Gratis",
+		"price": 5000,
+		"thumbnail": "imagen",
+		"code": "ES1",
+		"stock": 20,
+		"id": 1
+	},
+	{
+		"title": "Producto2",
+		"description": "Juege casino online Gratis",
+		"price": 5000,
+		"thumbnail": "imagen2",
+		"code": "ES1",
+		"stock": 20,
+		"id": 2
+	},
+	{
+		"title": "Producto3",
+		"description": "Juege casino online Gratis",
+		"price": 5000,
+		"thumbnail": "imagen3",
+		"code": "ES1",
+		"stock": 20,
+		"id": 3
+	},
+	{
+		"title": "Producto4",
+		"description": "Juege casino online Gratis",
+		"price": 5000,
+		"thumbnail": "imagen4",
+		"code": "ES1",
+		"stock": 20,
+		"id": 4
+	},
+	{
+		"title": "product",
+		"description": "seguimiento de producto",
+		"price": 5000,
+		"thumbnail": "no disponible",
+		"code": "ES7",
+		"stock": 40,
+		"id": 5
+	},
+	{
+		"description": "Un ejemplo aqui",
+		"code": "ABC123987989",
+		"stock": 5,
+		"status": true,
+		"category": "Categoria de Prueba",
+		"id": 6
+	},
+	{
+		"thumbnail": [
+			"https://www.google.com",
+			"https://www.infobae.com"
+		],
+		"code": "ABC123987989",
+		"stock": 5,
+		"status": true,
+		"category": "Categoria de Prueba",
+		"id": 7,
+		"title": {
+			"tittle": "f ",
+			"price": 2000,
+			"thumbnails": [
+				"https://www.google.com",
+				"https://www.infobae.com"
+			],
+			"description": "Un ejemplo aqui",
+			"category": "Categoria de Prueba",
+			"stock": 5,
+			"code": "ABC123987989"
+		}
+	},
+	{
+		"thumbnail": [
+			"https://www.google.com",
+			"https://www.infobae.com"
+		],
+		"code": "ABC123987989",
+		"stock": 5,
+		"status": true,
+		"category": "Categoria de Prueba",
+		"id": 8,
+		"title": {
+			"tittle": "f ",
+			"price": 2000,
+			"thumbnails": [
+				"https://www.google.com",
+				"https://www.infobae.com"
+			],
+			"description": "Un ejemplo aqui",
+			"category": "Categoria de Prueba",
+			"stock": 5,
+			"code": "ABC123987989"
+		}
+	},
+	{
+		"tittle": "dd llooo",
+		"code": "ABC123987989",
+		"stock": 5,
+		"status": true,
+		"category": "Categoria de Prueba",
+		"id": 9,
+		"title": {
+			"tittle": "f d",
+			"price": 2000,
+			"thumbnails": [
+				"https://www.google.com",
+				"https://www.infobae.com"
+			],
+			"description": "Un ejemplo aqui",
+			"category": "Categoria de Prueba",
+			"stock": 5,
+			"code": "ABC123987989"
+		}
+	},
+	{
+		"tittle": "f ggggd",
+		"code": "ABC123987989",
+		"stock": 5,
+		"status": true,
+		"category": "Categoria de Prueba",
+		"id": 10,
+		"title": {
+			"tittle": "f ",
+			"price": 2000,
+			"thumbnails": [
+				"https://www.google.com",
+				"https://www.infobae.com"
+			],
+			"description": "Un ejemplo aqui",
+			"category": "Categoria de Prueba",
+			"stock": 5,
+			"code": "ABC123987989"
+		}
+	}
+]
