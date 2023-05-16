@@ -1,79 +1,113 @@
-import ProductManager from "./producManager.js";
-import cartModel from "../models/carts.js";
-const productManager = new ProductManager();
+import cartModel from '../models/carts.js';
 
-export default class CartManager {
-    addProductInCart = async (id_cart, id_product) => {
-        const productExists = await productManager.getProductById(id_product)
-        if(!productExists){
-            throw Error('Product not exists.');
-        }else{
-        let cart_found = await cartModel.find({_id:id_cart})
-        if(!cart_found[0]){
-            throw Error('Cart not exists.');
-            return;
-        }else{
-            let productsInCart = cart_found[0].products;
-            const productIndex = productsInCart.findIndex(product => product._id == id_product)
-            if(productIndex !== -1){
-                productsInCart[productIndex].quantity = productsInCart[productIndex].quantity + 1
-            }else{
-                let product = {
-                    _id: id_product,
-                    quantity : 1
-                }
-                productsInCart.push(product)
-            }
-            await cartModel.updateOne({_id:id_cart},{$set:{products:productsInCart}});
-            let carts = this.getCarts();
-            return carts
-            }
-        }
+
+class CartManagerMongo{
+
+    constructor(path){
+        this.path = path;
+    }
+
+    async createCart(){
+
+        const cart = await cartModel.create({});
         
-    }
-    getCarts = async () =>{
+        return {
+            code: 202,
+            status: 'Success',
+            message: cart
+        };
+
+    };
+
+    async getCart(cid){
+        
+        const cart = await cartModel.findOne({_id:cid});
+
+        if(!cart){
+            return {
+                code: 400,
+                status: 'Error',
+                message: 'No se ha encontrado un cart con ese ID'
+            };
+        };
+
+        return {
+            code: 202,
+            status: 'Success',
+            message: cart.products
+        };
+    };
+
+    async updateCart(cid, pid){
+ 
+        const cart = await cartModel.findOne({_id:cid})
+
+        const prodIndex = cart.products.findIndex(u=>u._id === pid);
+
+        
+       // console.log(prodIndex);
+        if (prodIndex === -1){
+            const product = {
+                _id: pid,
+                quantity: 1
+            }
+            cart.products.push(product);
+        } 
+        else {
+            let total = cart.products[prodIndex].quantity;
+            cart.products[prodIndex].quantity = total + 1;
+        }
+
+        const result = await cartModel.updateOne({_id:cid},{$set:cart})
+        
+        return {
+            code: 202,
+            status: 'Success',
+            message: cart.products
+        };
+
+    };
+
+    async deleteProductCart(cid, pid){
+ 
+        const cart = await cartModel.findOne({_id:cid})
+
+        const prodIndex = cart.products.findIndex(u=>u._id === pid);
+
+        
+       // console.log(prodIndex);
+        if (prodIndex === -1){
+            //
+        } 
+        else {
+            //let total = cart.products[prodIndex].quantity;
+            cart.products.splice(prodIndex,1)
+        }
+
+        const result = await cartModel.updateOne({_id:cid},{$set:cart})
+        
+        return {
+            code: 202,
+            status: 'Success',
+            message: cart.products
+        };
+
+    };
+
+
+    
+    async getCarts(){
+        
         const carts = await cartModel.find();
-        return carts
-    }
-    addCart = async (cart) => {
-        let carts = await this.getCarts();
 
-        if(carts.length === 0){
-            cart._id = 1
-        }else{
-            cart._id = carts[carts.length-1]._id+1;
-        }
-        await cartModel.create(cart);
-        carts = await this.getCarts();
-        return carts
-    }
-    getCartById = async(id_cart)=>{
-        let cart_found = await cartModel.find({_id:id_cart})
-        if(cart_found[0]){
-            return cart_found[0]
-        }else{
-            return;
-        }
-    }
-    updateCart = async(id_cart,newCart)=>{
-        let carts = await this.getCarts();
-        let cart_found = await cartModel.find({_id:id_cart})
-        if(cart_found){
-            let result = await cartModel.updateOne({_id:id_cart},{$set:newCart})
-            carts = this.getCarts();
-            return new_carts;   
-        }else{
-            return 'Error in update operation. cart not found.'
-        }
-    }
+        return {
+            code: 202,
+            status: 'Success',
+            message: carts
+        };
+    };
 
-    deleteCart = async(id_cart)=>{
-        let cart_found = await cartModel.find({_id:id_cart})
-        if(cart_found.length!=0){
-            let result = await cartModel.deleteOne({_id:id_cart});
-            return cart_found;   
-        }else{
-            throw new Error('Error in delete operation. Cart not found.')
-        }
-    }
+
 }
+
+export default CartManagerMongo;

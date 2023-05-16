@@ -138,4 +138,8 @@ Fecha: 15/5/2023 - Hora: 18:44:19 - Metodo: Agrega nuevo producto'
 Fecha: 15/5/2023 - Hora: 18:47:51 - Metodo: Agrega nuevo producto'
 Fecha: 15/5/2023 - Hora: 18:48:08 - Metodo: Agrega nuevo producto'
 Fecha: 15/5/2023 - Hora: 18:48:23 - Metodo: Agrega nuevo producto'
-Fecha: 15/5/2023 - Hora: 19:22:56 - Metodo: Obtencion de datos - Lista de productos
+Fecha: 15/5/2023 - Hora: 19:22:56 - Metodo: Obtencion de datos - Lista de productos'
+Fecha: 16/5/2023 - Hora: 14:26:09 - Metodo: Obtencion de datos - Lista de productos'
+Fecha: 16/5/2023 - Hora: 15:25:08 - Metodo: Obtencion de datos - Lista de productos'
+Fecha: 16/5/2023 - Hora: 15:34:59 - Metodo: Obtencion de datos - Lista de productos'
+Fecha: 16/5/2023 - Hora: 15:39:20 - Metodo: Obtencion de datos - Lista de productos

@@ -1,14 +1,20 @@
 import { Router } from "express";
 
+//File imports
+import MessageManager from "../Dao/managers/msgManager.js";
+
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.render("home");
+const messageManager = new MessageManager();
+
+router.get('/', async (request, response) => {
+    
+    const messageHistory = await messageManager.getMessages();
+
+    response.render('chat', {
+        messages: messageHistory.message
+    });
+
 });
-router.get("/realtimeproducts", (req, res) => {
-  res.render("realtimeproducts");
-});
-router.get("/chat", (req, res) => {
-  res.render("chat");
-});
+
 export default router;
